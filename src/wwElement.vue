@@ -7,7 +7,8 @@
         <!-- <div  class="chat-messages-container" > -->
         <div ref="chatMessagesDiv" :class="['message', msg.role]" v-for="(msg, index) in conversationHistory"
           :key="index">
-          {{ msg.content }}
+            <!-- {{ msg.content }}-->
+          <div v-html="msg.content"></div>
           <div v-if="msg.role === 'assistant' && (msg.tool_args || msg.tool_response)" class="tool-info mt-2">
             <div v-if="msg.tool_args"><strong>Tool Args:</strong>
               <pre>{{ JSON.stringify(msg.tool_args, null, 2) }}</pre>
